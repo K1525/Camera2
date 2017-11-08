@@ -1,10 +1,11 @@
 package com.example.k2421.testcamera2;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-public class CameraActivity extends AppCompatActivity {
+public class CameraActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +15,7 @@ public class CameraActivity extends AppCompatActivity {
         //
 
         if (null == savedInstanceState) {
-            getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.container, Camera2BasicFragment.newInstance())
                     .commit();
         }
