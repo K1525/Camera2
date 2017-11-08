@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\dba6d1fa0b45c936e800c4e95458c4c874dc6391\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="62f733cc92b1611138da965697f4654cd385e078">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e4ee4d636b8dd8a0eb068e43230c8df7edbf11c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\fa53576fd231b9b05c24d396ed70825bb5c466eb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d8ee0505c4a86c1aa2668a3d776fbde74415d45\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\K2421\Camera2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_8fe9bda9a7717ab6eb84422d10f0f45fb22815b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\e3840308f1c19115a4cad0d08fa79216cbb21ece\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6085147e4e83768a7cbb5435139cd7048596637d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\a9a4e1b56de66d745d7606cd364449d8ca868b0d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8fa25c92cdfe0d59013256f70fb5e790badaa464\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\a46defa89b7275af36431945ac4d8ff0e27d3b15\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f501657f78cd592390d5e5a18387c08606c1ba45\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\K2421\Camera2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="135f099cc586923e6a5476ec169231019fb8af0b">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_789d6a991a29e2b96152b1c90dc038a1d6ae4f09\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_f1a3251687e4fd4972c1d9cde858ac685126a373\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.0.0-alpha1_b7b923cb65f195817049151bed1559462a9b4b1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\c486a9985334922d87672301072f7782d3668393\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cdaed95f5b900911da3afa18b509656852e547d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\e182005c129dd74dff0557ecea3075f01fb9c5a0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1f3543215e7e76e3c7360522495baffc2d867b07\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\5f0969982cbd67954277895d85bde591485cc1de\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_01ca54edd584e99efd855f972ecf6cd059e0567a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\6ef5c3ab8b472cb222820560665138ff75afb4a6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_664ec44a835402b8a2bf37969fc5c115f4007448\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\c8c253ded1d54556f30cb34fc4f84a5c0354fd89\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_917c48edeacfdb961f987e57c3c80dfed6e8726d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\astudio-avd\.android\build-cache\8db075b6c7b6ac4765e6a389015218b8bf749d0d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="D:\K2421\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9baca440cadebad3e73b1790989af997226c7bde\classes.dex" />
+    </item>
+
+</items>

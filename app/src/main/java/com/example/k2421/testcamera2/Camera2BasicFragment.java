@@ -416,7 +416,7 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
-        view.findViewById(R.id.picture).setOnClickListener(this);
+        view.findViewById(R.id.imageButton).setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
@@ -452,7 +452,7 @@ public class Camera2BasicFragment extends Fragment
 
     private void requestCameraPermission() {
         if (FragmentCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-            new ConfirmationDialog().show(getChildFragmentManager(), FRAGMENT_DIALOG);
+           // new ConfirmationDialog().show(getChildFragmentManager(), FRAGMENT_DIALOG);
         } else {
             FragmentCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},
                     REQUEST_CAMERA_PERMISSION);
@@ -464,8 +464,8 @@ public class Camera2BasicFragment extends Fragment
                                            @NonNull int[] grantResults) {
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
             if (grantResults.length != 1 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                ErrorDialog.newInstance(getString(R.string.request_permission))
-                        .show(getChildFragmentManager(), FRAGMENT_DIALOG);
+                /*ErrorDialog.newInstance(getString(R.string.request_permission))
+                        .show(getChildFragmentManager(), FRAGMENT_DIALOG);*/
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -581,8 +581,9 @@ public class Camera2BasicFragment extends Fragment
         } catch (NullPointerException e) {
             // Currently an NPE is thrown when the Camera2API is used but not supported on the
             // device this code runs.
-            ErrorDialog.newInstance(getString(R.string.camera_error))
+           /* ErrorDialog.newInstance("Error")
                     .show(getChildFragmentManager(), FRAGMENT_DIALOG);
+                    */
         }
     }
 
@@ -876,7 +877,7 @@ public class Camera2BasicFragment extends Fragment
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.picture: {
+            case R.id.imageButton: {
                 takePicture();
                 break;
             }
@@ -884,7 +885,7 @@ public class Camera2BasicFragment extends Fragment
                 Activity activity = getActivity();
                 if (null != activity) {
                     new AlertDialog.Builder(activity)
-                            .setMessage(R.string.intro_message)
+                            .setMessage("MOi")
                             .setPositiveButton(android.R.string.ok, null)
                             .show();
                 }
@@ -992,6 +993,7 @@ public class Camera2BasicFragment extends Fragment
     /**
      * Shows OK/Cancel confirmation dialog about camera permission.
      */
+    /*
     public static class ConfirmationDialog extends DialogFragment {
 
         @Override
@@ -1019,6 +1021,6 @@ public class Camera2BasicFragment extends Fragment
                             })
                     .create();
         }
-    }
+    }*/
 
 }
