@@ -435,8 +435,7 @@ public class Camera2BasicFragment extends Fragment
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         view.findViewById(R.id.imageButton).setOnClickListener(this);
-
-        view.findViewById(flash).setOnClickListener(this);
+        view.findViewById(R.id.flash).setOnClickListener(this);
 
 //        view.findViewById(R.id.info).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
@@ -932,7 +931,14 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onClick(View view) {
-        final CaptureRequest.Builder captureBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+        CaptureRequest.Builder captureBuilder = null;
+        try {
+            captureBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+            //captureBuilder = null;
+            Log.d("captureBuilder: ", "error....");
+        }
         switch (view.getId()) {
             case R.id.imageButton: {
                 takePicture();
@@ -949,19 +955,57 @@ public class Camera2BasicFragment extends Fragment
                 break;
             }
             case flash: {
-                Log.d("FLASH", "!!!!!!!!!!!!!!!!!!!");
+                Log.d("FLASH", "Click!");
+
                 if (flashMode == 0){
                     flashMode = 1;
-                    //Nappi katoaa???
-                    //view.findViewById(R.id.flash).setBackgroundResource(R.drawable.ic_flash_on_black_24dp);
+                    Log.d("Flash: ", "ON");
+
+                    Context context = getActivity().getApplicationContext();
+                    CharSequence text = "Flash: ON";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                    ImageButton flashButton = getActivity().findViewById(R.id.flash);
+                    flashButton.setImageResource(R.drawable.ic_flash_on_black_24dp);
+
+                    /*
+                    if (captureBuilder != null) changeFlash(captureBuilder);
+                    else {
+                        Log.d("Flashmode on: ","error...");
+                    }
+                    */
+
                 }else {
                     flashMode = 0;
-                    //Nappi katoaa???
-                    //view.findViewById(R.id.flash).setBackgroundResource(R.drawable.ic_flash_off_black_24dp);
+                    Log.d("Flash: ", "OFF");
+
+                    Context context = getActivity().getApplicationContext();
+                    CharSequence text = "Flash: OFF";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                    ImageButton flashButton = getActivity().findViewById(R.id.flash);
+                    flashButton.setImageResource(R.drawable.ic_flash_off_black_24dp);
+                    /*
+                    if (captureBuilder != null) changeFlash(captureBuilder);
+                    else {
+                        Log.d("Flashmode off: ","error...");
+                    }
+                    */
                 }
 
+                /*
                 Log.d("FLASHMODE", String.valueOf(flashMode));
-                changeFlash(captureBuilder);
+                if (captureBuilder != null) changeFlash(captureBuilder);
+                else {
+                    Log.d("TAG","Some error...");
+                }
+                */
                 break;
             }
         }
@@ -970,20 +1014,41 @@ public class Camera2BasicFragment extends Fragment
     // OMA FUNKTIO CHANGEFLASH
 
     private void changeFlash(CaptureRequest.Builder requestBuilder){
-        if (flashMode == 0){
-            requestBuilder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AE_MODE_ON_AUTO_FLASH);
+        Log.d("Flash", "Testi");
+        if (flashMode == 1){
+            Log.d("Flash: ", "ON");
+
+            Context context = getActivity().getApplicationContext();
+            CharSequence text = "Flash: ON";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
+            /*
+            requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AF_MODE_AUTO);
             requestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_SINGLE);
+            */
+            //requestBuilder.set(CaptureRequest.FLASH_MODE,);
         }else{
+            Log.d("Flash: ", "OFF");
+
             requestBuilder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AE_MODE_ON_AUTO_FLASH);
-            requestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_SINGLE);
+            requestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_OFF);
         }
     }
 
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
         if (mFlashSupported) {
+            if(flashMode == 0){
+                requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+            }else if(flashMode == 1){
+                requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+            }
+            /*
             requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,
-                    CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
+                    CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);*/
         }
     }
 

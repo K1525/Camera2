@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
+        jar="D:\K1525\Camera2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="42af312b0e132e9ad701726a99edb1273b5f4d4f">
+        <dex dex="D:\K1525\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_476f8f7a0180b6423c0d77c78d068ad2adcb75e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\astudio-avd\.android\build-cache\dba6d1fa0b45c936e800c4e95458c4c874dc6391\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="62f733cc92b1611138da965697f4654cd385e078">
         <dex dex="D:\K1525\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e4ee4d636b8dd8a0eb068e43230c8df7edbf11c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\K1525\Camera2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="bab7b8f00509ef6e463e20a4f160d4477830c249">
-        <dex dex="D:\K1525\Camera2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_476f8f7a0180b6423c0d77c78d068ad2adcb75e5\classes.dex" />
     </item>
     <item
         is-multidex="true"
