@@ -18,6 +18,7 @@ import android.content.res.Configuration;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -47,6 +48,8 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -63,8 +66,14 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import static android.R.attr.button;
+import static android.R.attr.drawable;
+import static android.R.attr.width;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
+import static com.example.k2421.testcamera2.R.id.flash;
 
 public class Camera2BasicFragment extends Fragment
         implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
@@ -77,6 +86,7 @@ public class Camera2BasicFragment extends Fragment
     private static final int REQUEST_STORAGE_PERMISSION = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
     private static final int MY_CAMERA_REQUEST_CODE = 100;
+    private int flashMode = 0;
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -425,8 +435,13 @@ public class Camera2BasicFragment extends Fragment
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         view.findViewById(R.id.imageButton).setOnClickListener(this);
+
+        view.findViewById(flash).setOnClickListener(this);
+
 //        view.findViewById(R.id.info).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
+
+
     }
 
     @Override
@@ -846,6 +861,20 @@ public class Camera2BasicFragment extends Fragment
             int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getOrientation(rotation));
 
+
+
+            //ZOOM!!!!!!!!!!!!!!!
+
+
+            //Rect zoom = new Rect(0, 0, 1080, 1920);
+
+            //captureBuilder.set(CaptureRequest.SCALER_CROP_REGION, zoom);
+
+            //FLASH!!!!!!!!!!!!!
+            /*
+            captureBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AF_MODE_AUTO);
+            captureBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_SINGLE);
+            */
             CameraCaptureSession.CaptureCallback CaptureCallback
                     = new CameraCaptureSession.CaptureCallback() {
 
@@ -903,6 +932,7 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onClick(View view) {
+        final CaptureRequest.Builder captureBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
         switch (view.getId()) {
             case R.id.imageButton: {
                 takePicture();
@@ -918,8 +948,37 @@ public class Camera2BasicFragment extends Fragment
                 }
                 break;
             }
+            case flash: {
+                Log.d("FLASH", "!!!!!!!!!!!!!!!!!!!");
+                if (flashMode == 0){
+                    flashMode = 1;
+                    //Nappi katoaa???
+                    //view.findViewById(R.id.flash).setBackgroundResource(R.drawable.ic_flash_on_black_24dp);
+                }else {
+                    flashMode = 0;
+                    //Nappi katoaa???
+                    //view.findViewById(R.id.flash).setBackgroundResource(R.drawable.ic_flash_off_black_24dp);
+                }
+
+                Log.d("FLASHMODE", String.valueOf(flashMode));
+                changeFlash(captureBuilder);
+                break;
+            }
         }
     }
+
+    // OMA FUNKTIO CHANGEFLASH
+
+    private void changeFlash(CaptureRequest.Builder requestBuilder){
+        if (flashMode == 0){
+            requestBuilder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AE_MODE_ON_AUTO_FLASH);
+            requestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_SINGLE);
+        }else{
+            requestBuilder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AE_MODE_ON_AUTO_FLASH);
+            requestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_SINGLE);
+        }
+    }
+
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
         if (mFlashSupported) {
