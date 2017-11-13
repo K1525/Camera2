@@ -434,13 +434,12 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
+        /*Get buttons from fragment_camera2_basic.xml*/
         view.findViewById(R.id.imageButton).setOnClickListener(this);
         view.findViewById(R.id.flash).setOnClickListener(this);
 
 //        view.findViewById(R.id.info).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
-
-
     }
 
     @Override
@@ -929,6 +928,7 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
+    /*Click listeners*/
     @Override
     public void onClick(View view) {
         CaptureRequest.Builder captureBuilder = null;
@@ -940,6 +940,7 @@ public class Camera2BasicFragment extends Fragment
             Log.d("captureBuilder: ", "error....");
         }
         switch (view.getId()) {
+            /*Capture-button click listener*/
             case R.id.imageButton: {
                 takePicture();
                 break;
@@ -954,6 +955,7 @@ public class Camera2BasicFragment extends Fragment
                 }
                 break;
             }
+            /*Flash-button click listener*/
             case flash: {
                 Log.d("FLASH", "Click!");
 
@@ -1011,8 +1013,8 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
-    // OMA FUNKTIO CHANGEFLASH
 
+    /*Attempt to create our own function to change flash mode, doesn't work because it probably requires some declaration somewhere*/
     private void changeFlash(CaptureRequest.Builder requestBuilder){
         Log.d("Flash", "Testi");
         if (flashMode == 1){
@@ -1038,9 +1040,10 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
-
+    /*Pre made function that sets auto flash, if-statement added to switch flash-mode*/
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
         if (mFlashSupported) {
+            /*Check and change flash-mode*/
             if(flashMode == 0){
                 requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
             }else if(flashMode == 1){
@@ -1066,12 +1069,14 @@ public class Camera2BasicFragment extends Fragment
          */
         private final File mFile;
 
+        /*Run function that creates destination folder*/
         public ImageSaver(Image image, File file) {
             mImage = image;
             //mFile = file;
             mFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
         }
 
+        /*Save picture that was captured*/
         @Override
         public void run() {
             Log.d("Testi", "********************************");
@@ -1144,6 +1149,7 @@ public class Camera2BasicFragment extends Fragment
 
     }
 
+    /*Create folder and filename for picture*/
     private static File getOutputMediaFile(int type){
         // To be safe, you should check that the SDCard is mounted
         // using Environment.getExternalStorageState() before doing this.
